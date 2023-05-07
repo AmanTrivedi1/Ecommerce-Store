@@ -2,7 +2,7 @@ import Link from "next/link";
 import styled from "styled-components";
 import Centre from "./Centre";
 const StyledHeader = styled.header`
-  background-color: #3c4048;
+  background-color: #20262e;
 `;
 
 const Wrapper = styled.div`
@@ -30,8 +30,8 @@ export default function Header() {
           <Link href={"/"}>
             <img
               className=""
-              style={{ width: "50px" }}
-              src="https://res.cloudinary.com/dmlts9lbk/image/upload/v1683385411/logo_bmnazd.png"
+              style={{ width: "120px" }}
+              src="https://res.cloudinary.com/dmlts9lbk/image/upload/v1683451007/dotSTORE_phtrvy.png"
               alt="Logo"
             />
           </Link>
