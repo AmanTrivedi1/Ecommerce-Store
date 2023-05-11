@@ -1,38 +1,57 @@
+import Center from "@/components/Center";
 import styled from "styled-components";
-import Centre from "./Centre";
-import Button from "./Button";
-import ButtonLink from "./ButtonLink";
-import CartIcon from "./icons/CartIcon";
+import Button from "@/components/Button";
+import ButtonLink from "@/components/ButtonLink";
+import CartIcon from "@/components/icons/CartIcon";
 import { useContext } from "react";
-import { CartContext } from "./CartContext";
+import { CartContext } from "@/components/CartContext";
+
 const Bg = styled.div`
-  background-color: #20262e;
-  color: #eaeaea;
+  background-color: #000;
+  border-bottom: 1px solid #454545;
+  color: #f0eeed;
   padding: 50px 0;
 `;
 const Title = styled.h1`
   margin: 0;
   font-weight: normal;
-  font-size: 3rem;
+  font-size: 1.5rem;
+  @media screen and (min-width: 768px) {
+    font-size: 3rem;
+  }
 `;
 const Desc = styled.p`
-  color: #eaeaea;
-  font-size: 1rem;
-  line-height: 20px;
+  color: #f0eeed;
+  font-size: 0.8rem;
 `;
-const ColumnWrapper = styled.div`
+const ColumnsWrapper = styled.div`
   display: grid;
-  grid-template-columns: 0.9fr 1.2fr;
+  grid-template-columns: 1fr;
   gap: 40px;
   img {
     max-width: 100%;
+    max-height: 200px;
+    display: block;
+    margin: 0 auto;
+  }
+  div:nth-child(1) {
+    order: 2;
+  }
+  @media screen and (min-width: 768px) {
+    grid-template-columns: 1.1fr 0.9fr;
+    div:nth-child(1) {
+      order: 0;
+    }
+    img {
+      max-width: 100%;
+    }
   }
 `;
 const Column = styled.div`
   display: flex;
   align-items: center;
 `;
-const ButtonWrapper = styled.div`
+const ButtonsWrapper = styled.div`
   display: flex;
   gap: 10px;
   margin-top: 25px;
@@ -43,39 +62,37 @@ export default function Featured({ product }) {
   function addFeaturedToCart() {
     addProduct(product._id);
   }
-
   return (
     <Bg>
-      <Centre>
-        <ColumnWrapper>
+      <Center>
+        <ColumnsWrapper>
           <Column>
             <div>
-              <Title>{product.title}</Title>
-              <Desc>{product.description}</Desc>
-              <ButtonWrapper>
+              <Title>{product?.title}</Title>
+              <Desc>{product?.description}</Desc>
+              <ButtonsWrapper>
                 <ButtonLink
-                  href={"/product/" + product._id}
-                  white={1}
+                  href={"/product/" + product?._id}
                   outline={1}
-                  size="l"
+                  white={1}
                 >
-                  Read More
+                  Read more
                 </ButtonLink>
-                <Button primary size="l" onClick={addFeaturedToCart}>
+                <Button white onClick={addFeaturedToCart}>
                   <CartIcon />
-                  Add to Cart
+                  Add to cart
                 </Button>
-              </ButtonWrapper>
+              </ButtonsWrapper>
             </div>
           </Column>
-          <div>
+          <Column>
             <img
               src="https://next-aman-ecommerce.s3.amazonaws.com/1683444483272.webp"
-              alt="Productimage"
+              alt=""
             />
-          </div>
-        </ColumnWrapper>
-      </Centre>
+          </Column>
+        </ColumnsWrapper>
+      </Center>
     </Bg>
   );
 }

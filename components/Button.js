@@ -25,7 +25,7 @@ export const ButtonStyle = css`
     props.white &&
     !props.outline &&
     css`
-      background-color: #fff;
+      background-color: #f0eeed;
       color: #000;
     `}
   ${(props) =>
@@ -33,15 +33,15 @@ export const ButtonStyle = css`
     props.outline &&
     css`
       background-color: transparent;
-      color: #fff;
-      border: 1px solid #fff;
+      color: #f0eeed;
+      border: 1px solid #f0eeed;
     `}
   ${(props) =>
     props.black &&
     !props.outline &&
     css`
       background-color: #000;
-      color: #fff;
+      color: #f0eeed;
     `}
   ${(props) =>
     props.black &&
@@ -57,7 +57,7 @@ export const ButtonStyle = css`
     css`
       background-color: ${primary};
       border: 1px solid ${primary};
-      color: #fff;
+      color: #f0eeed;
     `}
   ${(props) =>
     props.primary &&

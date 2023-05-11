@@ -1,28 +1,19 @@
 import styled from "styled-components";
-import Centre from "./Centre";
-import ProductBox from "./ProductBox";
+import Center from "@/components/Center";
+import ProductsGrid from "@/components/ProductsGrid";
 
-const ProductsGrid = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px;
-  padding-top: 30px;
-`;
 const Title = styled.h2`
   font-size: 2rem;
+  color: #f0eeed;
   margin: 30px 0 20px;
-  font-weight: 500;
+  font-weight: normal;
 `;
+
 export default function NewProducts({ products }) {
   return (
-    <Centre>
+    <Center>
       <Title>New Arrivals</Title>
-      <ProductsGrid>
-        {products?.length > 0 &&
-          products.map((product) => (
-            <ProductBox key={product._key} {...product} />
-          ))}
-      </ProductsGrid>
-    </Centre>
+      <ProductsGrid products={products} />
+    </Center>
   );
 }
